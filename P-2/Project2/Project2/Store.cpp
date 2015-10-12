@@ -44,37 +44,20 @@ void Store::stockStore(std::string filename)
 	}	
 	else
 	{
-		/*std::string foodName = ""; std::string foodType = "";
-		double cost;
-		input >> foodName >> foodType >> cost;
-		foodName = foodName.substr(1, foodName.size()-2);
-
-		std::cout << foodName << " " << foodType << " " << cost << std::endl;
-		input >> foodName >> foodType >> cost;
-		foodName = foodName.substr(1, foodName.size() - 2);
-		std::cout << foodName << " " << foodType << " " << cost << std::endl;
-
-		input >> foodName >> foodType >> cost;
-		//foodName = foodName.substr(1, foodName.size() - 2);
-		std::cout << foodName << " " << foodType << " " << cost << std::endl;*/
-
-		//infinite loop
-		/*while (!input.eof())
-		{
-			input >> foodName >> foodType >> cost;
-			std::cout << foodName << " " << foodType << " " << cost << std::endl;
-		}*/
-
+		std::string foodType = "";
+		double cost = 0.0;
 		std::string line = "";
+		std::string skip = "";
 		while (std::getline(input, line, '\n')) //delimeter is new line
 		{
 			if (line != "")
 			{
 				std::stringstream stream(line);
 				std::string foodName = "";
-				while (std::getline(stream, foodName, '"') || std::getline(stream, foodName, ' ')) //delimeter is space
+														
+				while (std::getline(std::getline(stream, skip, '"'), foodName, '"') >> foodType >> cost) //
 				{					
-					std::cout << "current word " << foodName << std::endl;
+					std::cout << "current word " << foodName << " "<< foodType << " " <<cost <<  std::endl;
 				}
 			}
 		}
