@@ -12,17 +12,17 @@
 
 #ifndef STORE_H
 #define STORE_H
-#include<vector>
-#include<stack>
-#include<string>
-#include<fstream>
-#include<iostream>
+#include <vector>
+#include <stack>
+#include <string>
+#include <fstream>
+#include <iostream>
 #include "Food.h"
 #include "Sweet.h"
 #include "Starch.h"
 #include "Fruit.h"
-#include"Meat.h"
-#include"Vegetable.h"
+#include "Meat.h"
+#include "Vegetable.h"
 
 class Store
 {
@@ -38,7 +38,7 @@ public:
 
 
 private:
-	std::vector<std::stack<Food*>> m_bins;
+	std::vector<std::stack<Food*> > m_bins;
 	Food* foodList;
 	int meatCount, sweetCount, fruitCount, vegCount, starchCount;
 	std::ifstream input;

@@ -11,12 +11,13 @@
 ***********************************************/
 
 #include "Store.h"
-#include<sstream>
+#include <sstream>
+#include <cstdlib>
 
 
 
 //default constructor
-Store::Store() :meatCount(0), fruitCount(0), vegCount(0), starchCount(0), sweetCount(0)
+Store::Store() :meatCount(0), sweetCount(0), fruitCount(0), vegCount(0), starchCount(0)
 {
 
 }
@@ -36,7 +37,7 @@ Food* Store::getFoodByType(Food::FOOD_TYPE ftype){
 
 void Store::stockStore(std::string filename)
 {
-	input.open(filename);
+	input.open(filename.c_str());
 	if (input.fail())
 	{
 		std::cout << "File is not found!";

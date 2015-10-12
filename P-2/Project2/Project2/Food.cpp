@@ -13,7 +13,7 @@
 
 
 // default constructor
-Food::Food() :m_dCost(0), m_sName("no-name")
+Food::Food() :m_sName("no-name"), m_dCost(0) 
 {
 
 }

@@ -17,6 +17,8 @@
 #include <string>
 
 #include "Manager.h"
+#include "Sweet.h"
+#include "Meat.h"
 
 void printGreeting(); // prints greeting
 using namespace std;
