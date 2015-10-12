@@ -68,6 +68,20 @@ int main(int argc, char* argv[]) {
 	Store str;
 
 	str.stockStore("Sample1Store.txt");
+	
+	ofstream output;
+	output.open("results.txt");
+
+
+	if (output.fail()){
+		cout << "Cannot output file!";
+		exit(1);
+	}
+	else
+	{
+		str.printStore(output);
+	}
+
 
 
 

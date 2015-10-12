@@ -23,7 +23,7 @@ Store::Store() :meatCount(0), fruitCount(0), vegCount(0), starchCount(0), sweetC
 
 void Store::addFood(Food* food)
 {
-
+	
 }
 
 Food* Store::getFoodByType(Food::FOOD_TYPE ftype){
@@ -43,30 +43,28 @@ void Store::stockStore(std::string filename)
 		exit(1);
 	}	
 	else
-	{
-		std::string foodType = "";
-		double cost = 0.0;
+	{		
 		std::string line = "";
 		std::string skip = "";
+		
 		while (std::getline(input, line, '\n')) //delimeter is new line
 		{
 			if (line != "")
 			{
-				std::stringstream stream(line);
-				std::string foodName = "";
+				std::stringstream stream(line);				
 														
-				while (std::getline(std::getline(stream, skip, '"'), foodName, '"') >> foodType >> cost) //
+				while (std::getline(std::getline(stream, skip, '"'), foodName, '"') >> foodType >> cost) // gets rid of quotes
 				{					
-					std::cout << "current word " << foodName << " "<< foodType << " " <<cost <<  std::endl;
+					std::cout << "food " << foodName << " "<< foodType << " " <<cost <<  std::endl;
+					foodCount++; //total amount of food in the store
 				}
 			}
 		}
 	}
 
-
+	std::cout << "size if the vector ";
+	
 	input.close();
-
-
 }
 
 void Store::printStore(std::ofstream& stream){

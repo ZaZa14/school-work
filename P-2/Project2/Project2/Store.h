@@ -38,10 +38,14 @@ public:
 
 
 private:
-	std::vector<std::stack<Food*>> m_bins;
+	std::vector<std::stack<Food*>> m_bins[5];
 	Food* foodList;
 	int meatCount, sweetCount, fruitCount, vegCount, starchCount;
 	std::ifstream input;
+	std::string foodName = "";
+	std::string foodType = "";
+	double cost = 0.0;
+	unsigned int foodCount = 0;
 };
 
 #endif
