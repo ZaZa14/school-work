@@ -20,6 +20,8 @@ class Fruit :
 public:
 	Fruit();
 	Fruit(std::string name, FOOD_TYPE type, double cost);
+	Fruit(std::string name, double cost);
+
 
 	//~Fruit();
 };

@@ -23,6 +23,7 @@ public:
 
 	Food();
 	Food(std::string name, FOOD_TYPE type, double price);
+	//Food(std::string name, double price);
 
 	
 	Food::FOOD_TYPE getType();

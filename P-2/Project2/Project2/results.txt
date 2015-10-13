@@ -1,2 +1,7 @@
 
- ---------- Store ----------
+----------- Store -----------
+Sweet: 2 Sugar Cookie, Fudge Brownie
+Starch: 5 Granola, French Bread, Potato Salad, Mac & Cheese, Rigatoni
+Meat: 1 Beef Chuck
+Vegetable: 3 Butternut Squash, Spinach, Sweet Peppers
+Fruit: 4 Banana, Apples, Grapes, Nectarine

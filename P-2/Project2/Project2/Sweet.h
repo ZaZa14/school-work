@@ -20,10 +20,12 @@ class Sweet :
 {
 public:
 	Sweet();
+	Sweet(std::string name, double cost);
+
 	Sweet(std::string name, FOOD_TYPE type, double cost);
 
 private:
-	//FOOD_TYPE sweet = FOOD_TYPE::SWEET;
+	
 
 
 

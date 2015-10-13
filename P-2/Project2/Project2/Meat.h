@@ -20,7 +20,7 @@ class Meat :
 public:
 	Meat();
 	Meat(std::string name, FOOD_TYPE type, double cost);
-
+	Meat(std::string name, double cost);
 	//~Meat();
 };
 

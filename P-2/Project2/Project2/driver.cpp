@@ -52,20 +52,7 @@ int main(int argc, char* argv[]) {
 
 	Meat m;
 	m.setCost(25.48);
-	m.setName("Lamb");
-
-
-
-
-	
-
-	cout << "\nprice of the " << s.getName() << " is " << s.getCost() << " and type is " << s.getType() << endl;
-	cout << "\nprice of the " << f.getName() << " is " << f.getCost() << " and type is " << f.getType() << endl;
-
-	cout << f;
-	cout << s;
-	cout << st;
-	cout << m;
+	m.setName("Lamb");	
 
 	Store str;
 
@@ -84,7 +71,11 @@ int main(int argc, char* argv[]) {
 		str.printStore(output);
 	}
 
+	Orders or;
 
+	or.loadOrders("Sample1Orders.txt");
+
+	
 
 
 

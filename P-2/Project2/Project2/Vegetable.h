@@ -21,6 +21,7 @@ class Vegetable :
 public:
 	Vegetable();
 	Vegetable(std::string name, FOOD_TYPE type, double cost);
+	Vegetable(std::string name, double cost);
 
 	//~Vegetable();
 };

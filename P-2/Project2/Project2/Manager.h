@@ -13,11 +13,24 @@
 #ifndef MANAGER_H
 #define MANAGER_H
 #include "Store.h"
+#include "Orders.h"
 
 class Manager
 {
 public:
 	Manager();
+	Manager(char* store, char* order);
+
+	void createStore(std::string filename);
+	void createOrders(std::string filename);
+	void fillOrders(std::ofstream& stream);
+	void printStatus(std::ofstream& stream);
+
+private:
+	Store m_store;
+	Orders m_orders;
+
+
 	//~Manager();
 };
 

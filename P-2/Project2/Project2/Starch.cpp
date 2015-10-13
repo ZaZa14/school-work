@@ -26,7 +26,11 @@ Starch::Starch(std::string name, FOOD_TYPE type, double cost)
 	
 }
 
+Starch::Starch(std::string name, double cost)
+	: Food(name, Food::STARCH, cost)
+{
 
+}
 /*Starch::~Starch()
 {
 }*/

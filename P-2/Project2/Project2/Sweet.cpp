@@ -26,6 +26,12 @@ Sweet::Sweet(std::string name, FOOD_TYPE type, double cost)
 
 }
 
+Sweet::Sweet(std::string name, double cost)
+	: Food(name, Food::SWEET ,cost)
+{
+	//setType(SWEET);
+}
+
 
 /*Sweet::~Sweet()
 {

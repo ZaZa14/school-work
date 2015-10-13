@@ -27,6 +27,11 @@ Food::Food(std::string name, FOOD_TYPE type, double price){
 
 }
 
+/*Food::Food(std::string name, double price){
+	m_sName = name;
+	m_dCost = price;
+}*/
+
 void Food::setType(FOOD_TYPE type){
 	m_eType = type;
 }

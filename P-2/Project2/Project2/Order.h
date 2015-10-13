@@ -22,7 +22,7 @@ public:
 	~Order();
 
 	void setCustomerName(std::string name);
-	void setAcceptPartical(bool partical);
+	void setAcceptPartical(bool partial);
 	void setOrderComplete(bool complete);
 	bool isAcceptPartial();
 
@@ -38,8 +38,12 @@ public:
 private:
 	std::string m_sCustomerName;
 	std::queue<Food::FOOD_TYPE> m_requests;
-	bool m_bAcceptsCompleted;
+	bool m_bAcceptsPartialOrder;
+	bool m_bOrderCompleted;
 	std::queue<Food*> m_filledRequests;
+	Food::FOOD_TYPE type;
+
+	Food* food;
 
 };
 

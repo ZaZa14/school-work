@@ -30,6 +30,8 @@ private:
 	std::queue <Order*> m_ordersUnfilled;
 	std::queue<Order*> m_ordersCompleted;
 	Order* m_pCurrentOrder;
+	std::ifstream input;
+	
 
 };
 

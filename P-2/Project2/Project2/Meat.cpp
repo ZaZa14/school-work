@@ -23,7 +23,11 @@ Meat::Meat(std::string name, FOOD_TYPE type, double cost)
 	
 }
 
+Meat::Meat(std::string name, double cost)
+	: Food(name, Food::MEAT, cost)
+{
 
+}
 /*Meat::~Meat()
 {
 }*/

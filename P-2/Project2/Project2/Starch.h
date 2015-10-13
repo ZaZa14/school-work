@@ -20,6 +20,7 @@ class Starch :
 public:
 	Starch();
 	Starch(std::string name, FOOD_TYPE type, double cost);
+	Starch(std::string name, double cost);
 
 	//~Starch();
 };
