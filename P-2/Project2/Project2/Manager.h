@@ -15,6 +15,7 @@
 #include "Store.h"
 #include "Orders.h"
 
+
 class Manager
 {
 public:
@@ -29,7 +30,7 @@ public:
 private:
 	Store m_store;
 	Orders m_orders;
-	std::string outputFile = "results.txt";
+	static const std::string outputFile;
 	std::ofstream output;
 
 

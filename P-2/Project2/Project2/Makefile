@@ -39,7 +39,7 @@ Vegetable.o:
 	$(CXX) $(CXXFLAGS) -c Vegetable.cpp
 	
 run:
-	./driver.out
+	./driver.out $(STORE) $(ORDERS)
 	
 clean:
 	rm -rf *.o

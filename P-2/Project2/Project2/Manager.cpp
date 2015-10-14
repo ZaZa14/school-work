@@ -11,7 +11,9 @@
 ***********************************************/
 
 #include "Manager.h"
+#include <cstdlib>
 
+const std::string Manager::outputFile = "results.txt";
 
 // Default constructor
 Manager::Manager()
@@ -23,6 +25,7 @@ Manager::Manager()
  * and creates orders ann stores */
 Manager::Manager(char* store, char* order)
 {
+
 	createStore(store);
 	createOrders(order);
 }

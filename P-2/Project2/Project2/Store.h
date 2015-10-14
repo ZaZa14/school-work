@@ -45,10 +45,10 @@ private:
 	Food* food;
 	int meatCount, sweetCount, fruitCount, vegCount, starchCount;
 	std::ifstream input;
-	std::string foodName = "";
-	std::string foodType = "";
-	double cost = 0.0;
-	unsigned int foodCount = 0;
+	std::string foodName;
+	std::string foodType;
+	double cost;
+	unsigned int foodCount;
 
 	std::stack<Food*> sweet;
 	std::stack<Food*> meat;

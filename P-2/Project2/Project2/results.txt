@@ -1,9 +1,9 @@
 Zafar Mamarakhimov, Section 05
 
 ----------- Store -----------
-Sweet: 2 Sugar Cookie, Fudge Brownie
-Starch: 5 Granola, French Bread, Potato Salad, Mac & Cheese, Rigatoni
-Meat: 1 Beef Chuck
-Vegetable: 3 Butternut Squash, Spinach, Sweet Peppers
-Fruit: 4 Banana, Apples, Grapes, Nectarine
+Sweet: 3 Sugar Cookie, Fudge Brownie, Frozen Yogurt
+Starch: 2 Potato Salad, SpaghettiO's
+Meat: 6 Beef Chuck, Bacon, Pork Spare Ribs, Pork Chops, Chunk Tuna, Ground Beef
+Vegetable: 0 
+Fruit: 2 Apples, Grapes
 ------------ Orders ------------

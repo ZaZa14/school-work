@@ -39,12 +39,12 @@ int main(int argc, char* argv[]) {
 
 
 	
-	Manager manager("Sample1Store.txt","Sample2Orders.txt");
+	//Manager manager("Sample1Store.txt","Sample2Orders.txt");
 
 	//open output file
 	outputFileStream.open("results.txt");
 	//take in store and order files
-	//Manager manager(argv[1], argv[2]);	
+	Manager manager(argv[1], argv[2]);	
 
 	manager.printStatus(outputFileStream);
 
