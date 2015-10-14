@@ -142,7 +142,7 @@ void Store::stockStore(std::string filename)
 														
 				while (std::getline(std::getline(stream, skip, '"'), foodName, '"') >> foodType >> cost) // gets rid of quotes
 				{					
-					std::cout << "food " << foodName << " "<< foodType << " " <<cost <<  std::endl;
+					//std::cout << "food " << foodName << " "<< foodType << " " <<cost <<  std::endl;
 					foodCount++; //total amount of food in the store
 					
 					//adding food to the stack				
@@ -175,12 +175,12 @@ void Store::stockStore(std::string filename)
 	m_bins.push_back(veggie);
 	m_bins.push_back(fruit);
 	
-	std::cout << "\nsize of sweet " << sweet.size() << std::endl;
+	/*std::cout << "\nsize of sweet " << sweet.size() << std::endl;
 	std::cout << "size of starch " << starch.size() << std::endl;
 	std::cout << "size of meat " << meat.size() << std::endl;
 	std::cout << "size of veggie " << veggie.size() << std::endl;
 	std::cout << "size of fruit " << fruit.size() << std::endl;
-	std::cout << "size of vector " << m_bins.size() << std::endl;	
+	std::cout << "size of vector " << m_bins.size() << std::endl;*/	
 
 	input.close();
 	
@@ -235,9 +235,11 @@ void Store::stockStore(std::string filename)
 /* Prints the store into the results.txt file*/
 void Store::printStore(std::ofstream& stream){
 	std::stack<Food*> temp;
-	Food* fd;
+	Food* fd = NULL;
 	std::string food = "";
 
+
+	stream << "Zafar Mamarakhimov, Section 05\n";
 	stream << "\n----------- Store -----------" << std::endl;
 	for (unsigned int i = 0; i < m_bins.size(); i++)
 	{
@@ -261,14 +263,42 @@ void Store::printStore(std::ofstream& stream){
 			else if (m_bins[i].top()->getType() == Food::SWEET)
 			{
 				food = "Sweet";
+			}			
+		}
+		else if (m_bins[i].empty()) // if stack is empty 
+		{
+			switch (i)
+			{
+			case Food::SWEET:
+				food = "Sweet"; 
+				break;
+			case Food::STARCH:
+				food = "Starch";
+				break;
+			case Food::MEAT:
+				food = "Meat";
+				break;
+			case Food::VEGETABLE:
+				food = "Vegetable";
+				break;
+			case Food::FRUIT:
+				food = "Fruit";
+				break;
+			default:
+				break;
 			}
+		}
 
-			stream << food << ": " << m_bins[i].size() << " ";
+		stream << food << ": " << m_bins[i].size() << " ";
+		
+		if (!m_bins[i].empty())
+		{
 			fd = m_bins[i].top();
 			stream << fd->getName();
 			temp.push(fd);
 			m_bins[i].pop();
 		}
+
 			while (!m_bins[i].empty())
 			{
 				fd = m_bins[i].top();
@@ -285,7 +315,10 @@ void Store::printStore(std::ofstream& stream){
 			m_bins[i].push(temp.top());
 			temp.pop();
 		}
-	}	
+	}
+
+	
+	stream.close();
 }
 
 /* Destructor */

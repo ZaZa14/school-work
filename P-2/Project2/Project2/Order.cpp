@@ -14,7 +14,7 @@
 using namespace std;
 
 // default constructor
-Order::Order() : m_sCustomerName(""), m_bAcceptsPartialOrder(false), m_bOrderCompleted(false)
+Order::Order() : m_sCustomerName("")
 {
 
 }
@@ -33,9 +33,9 @@ void Order::setAcceptPartical(bool partial)
 }
 
 // sets final order
-void Order::setOrderComplete(bool complete)
+void Order::setOrderComplete()
 {
-	m_bOrderCompleted = complete;
+	m_bOrderCompleted = true;
 }
 
 // checks if the partial order is accepted or not
@@ -47,27 +47,35 @@ bool Order::isAcceptPartial()
 // adds food to the order
 void Order::addFoodToOrder(Food* food)
 {
-	
+	m_filledRequests.push(food);
 }
 
 // gets next request in the order
 Food::FOOD_TYPE& Order::getNextRequest()
 {
-	return type;
+	foodType = m_requests.front();
+	m_requests.pop();
+	return foodType;
 }
 
 // adds food type to the order
 void Order::addRequestToOrder(Food::FOOD_TYPE foodType)
 {
-	m_requests.push(foodType); //adds food type to the queue
+	m_requests.push(foodType); //adds food type to the queue	
 }
 
 Food* Order:: popFoodFromOrder()
 {
+	food = m_filledRequests.front();
+	m_filledRequests.pop();
 	return food;
 }
 
+//	prints the food order
+void Order::printOrder(ofstream& list)
+{
 
+}
 
 
 

@@ -29,6 +29,8 @@ public:
 private:
 	Store m_store;
 	Orders m_orders;
+	std::string outputFile = "results.txt";
+	std::ofstream output;
 
 
 	//~Manager();

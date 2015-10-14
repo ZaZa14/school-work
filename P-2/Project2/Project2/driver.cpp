@@ -31,68 +31,28 @@ int main(int argc, char* argv[]) {
 	
 
 	// actual code for driver class
-	std::ofstream outputFileStream;
-
-	
+	std::ofstream outputFileStream;	
 
 	//print greeting	
 	printGreeting();
-
-	
 	cout << endl;
-	Food::FOOD_TYPE type = Food::SWEET;
-	Food::FOOD_TYPE type1 = Food::STARCH;
-	Food::FOOD_TYPE meat = Food::MEAT;
 
-	Food f("omelette", type1, 5.50);
-
-	Sweet s("candy", type, 10.5);
-
-	Starch st("starch", type1, 50.65);
-
-	Meat m;
-	m.setCost(25.48);
-	m.setName("Lamb");	
-
-	Store str;
-
-	str.stockStore("Sample1Store.txt");
-	
-	ofstream output;
-	output.open("results.txt");
-
-
-	if (output.fail()){
-		cout << "Cannot output file!";
-		exit(1);
-	}
-	else
-	{
-		str.printStore(output);
-	}
-
-	Orders or;
-
-	or.loadOrders("Sample1Orders.txt");
 
 	
-
-
+	Manager manager("Sample1Store.txt","Sample2Orders.txt");
 
 	//open output file
-	//outputFileStream.open("results.txt");
+	outputFileStream.open("results.txt");
 	//take in store and order files
-	//Manager manager(argv[1], argv[2]);
-
-	
-
-	/*manager.printStatus(outputFileStream);
-
-	manager.fillOrders(outputFileStream);
+	//Manager manager(argv[1], argv[2]);	
 
 	manager.printStatus(outputFileStream);
 
-	outputFileStream.close();*/
+	manager.fillOrders(outputFileStream);
+
+	//manager.printStatus(outputFileStream);
+
+	//outputFileStream.close();
 
 	system("pause");
 

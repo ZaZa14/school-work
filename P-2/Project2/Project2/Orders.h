@@ -13,6 +13,7 @@
 #ifndef ORDERS_H
 #define ORDERS_H
 #include"Order.h"
+#include <cstring>
 
 class Orders
 {
@@ -25,12 +26,14 @@ public:
 	Order* getCurrentOrder();
 	void loadOrders(std::string filename);
 	void printOrders(std::ofstream& stream);
+	
 
 private:
 	std::queue <Order*> m_ordersUnfilled;
 	std::queue<Order*> m_ordersCompleted;
 	Order* m_pCurrentOrder;
 	std::ifstream input;
+	//std::string getCustomerName(std::string& str);
 	
 
 };
