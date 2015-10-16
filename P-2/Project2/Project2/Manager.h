@@ -2,7 +2,7 @@
 ** File:    Manager.h
 ** Project: CMSC 341 Project 2, Fall 2015
 ** Author:  Zafar Mamarakhimov
-** Date:
+** Date:	10/16/2015
 ** Section: 5
 ** E-mail:  mzafar2@umbc.edu
 **
@@ -26,12 +26,14 @@ public:
 	void createOrders(std::string filename);
 	void fillOrders(std::ofstream& stream);
 	void printStatus(std::ofstream& stream);
+	
 
 private:
 	Store m_store;
 	Orders m_orders;
 	static const std::string outputFile;
 	std::ofstream output;
+	Order* order;
 
 
 	//~Manager();

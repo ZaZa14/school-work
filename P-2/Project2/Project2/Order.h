@@ -2,7 +2,7 @@
 ** File:    Order.h
 ** Project: CMSC 341 Project 2, Fall 2015
 ** Author:  Zafar Mamarakhimov
-** Date:
+** Date:	10/16/2015
 ** Section: 5
 ** E-mail:  mzafar2@umbc.edu
 **
@@ -14,6 +14,7 @@
 #define _ORDER_H
 #include<queue>
 #include"Store.h"
+#include "Food.h"
 
 class Order
 {
@@ -32,7 +33,16 @@ public:
 	Food* popFoodFromOrder();
 
 	void printOrder(std::ofstream& list);
+	std::string getCustomeName();
+	std::vector<Food::FOOD_TYPE> getFoodTypes();
+	std::queue<Food::FOOD_TYPE>getTypeQueue();
+	std::string getCustomerName();
+	
+	
+	void getFoodFromStore(Store& str);
 
+
+	void setStoreforOrder(Store& str);
 
 
 private:
@@ -42,8 +52,10 @@ private:
 	bool m_bOrderCompleted;
 	std::queue<Food*> m_filledRequests;
 	Food::FOOD_TYPE foodType;
+	
 
 	Food* food;
+	std::vector<Food::FOOD_TYPE> types;
 
 };
 
