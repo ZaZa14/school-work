@@ -2,7 +2,7 @@
 ** File:    Food.cpp
 ** Project: CMSC 341 Project 2, Fall 2015
 ** Author:  Zafar Mamarakhimov
-** Date:
+** Date:	10/16/2015
 ** Section: 5
 ** E-mail:  mzafar2@umbc.edu
 **
@@ -64,11 +64,21 @@ std::string Food::getName(){
 
 
 //overloaded cout for testing purposes
-std::ostream& operator <<(std::ostream& outs, Food& food){
+std::ostream& operator <<(std::ostream& outs, Food& food)
+{
+	if (food.getName() == "0")
+	{
+		outs << "\n Name: " << food.getName() << std::endl;
+		outs << " cost: " << food.getCost() << std::endl;
+	}
+	else
+	{
+		outs << "\n Name: " << food.getName() << std::endl;
+		outs << " type: " << food.getType() << std::endl;
+		outs << " cost: " << food.getCost() << std::endl;
+	}
 
-	outs << "\n Name: " << food.getName()  << std::endl;
-	outs << " type: " << food.getType() << std::endl;
-	outs << " cost: " << food.getCost() << std::endl;
+	
 
 	return outs;
 }

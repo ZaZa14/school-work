@@ -2,7 +2,7 @@
 ** File:    Store.cpp
 ** Project: CMSC 341 Project 2, Fall 2015
 ** Author:  Zafar Mamarakhimov
-** Date:
+** Date:	10/16/2015
 ** Section: 5
 ** E-mail:  mzafar2@umbc.edu
 **
@@ -17,8 +17,14 @@
 
 
 //default constructor
-Store::Store() :meatCount(0), sweetCount(0), fruitCount(0), vegCount(0), starchCount(0)
+Store::Store()
 {
+
+	m_bins.push_back(sweet);
+	m_bins.push_back(starch);
+	m_bins.push_back(meat);
+	m_bins.push_back(veggie);
+	m_bins.push_back(fruit);
 
 }
 
@@ -29,19 +35,19 @@ void Store::addFood(Food* food)
 	switch (food->getType())
 	{
 	case Food::SWEET:
-		sweet.push(food);		
+		m_bins[Food::SWEET].push(food);
 		break;
 	case Food::STARCH:
-		starch.push(food);
+		m_bins[Food::STARCH].push(food);
 		break;
 	case Food::MEAT:
-		meat.push(food);
+		m_bins[Food::MEAT].push(food);
 		break;
 	case Food::VEGETABLE:
-		veggie.push(food);
+		m_bins[Food::VEGETABLE].push(food);
 		break;
 	case Food::FRUIT:
-		fruit.push(food);
+		m_bins[Food::FRUIT].push(food);
 		break;
 
 	default: 
@@ -57,10 +63,10 @@ Food* Store::getFoodByType(Food::FOOD_TYPE ftype){
 	switch (ftype)
 	{
 	case Food::SWEET:
-		if (!m_bins[0].empty())
+		if (!m_bins[Food::SWEET].empty())
 		{
-			food = m_bins[0].top();			
-			m_bins[0].pop();
+			food = m_bins[Food::SWEET].top();
+			m_bins[Food::SWEET].pop();
 		}
 		else
 		{
@@ -68,10 +74,10 @@ Food* Store::getFoodByType(Food::FOOD_TYPE ftype){
 		}		
 		break;
 	case Food::STARCH:
-		if (!m_bins[1].empty())
+		if (!m_bins[Food::STARCH].empty())
 		{
-			food = m_bins[1].top();
-			m_bins[1].pop();
+			food = m_bins[Food::STARCH].top();
+			m_bins[Food::STARCH].pop();
 		}
 		else
 		{
@@ -79,10 +85,10 @@ Food* Store::getFoodByType(Food::FOOD_TYPE ftype){
 		}		
 		break;
 	case Food::MEAT:
-		if (!m_bins[2].empty())
+		if (!m_bins[Food::MEAT].empty())
 		{
-			food = m_bins[2].top();
-			m_bins[2].pop();
+			food = m_bins[Food::MEAT].top();
+			m_bins[Food::MEAT].pop();
 		}
 		else
 		{
@@ -90,10 +96,10 @@ Food* Store::getFoodByType(Food::FOOD_TYPE ftype){
 		}	
 		break;
 	case Food::VEGETABLE:
-		if (!m_bins[3].empty())
+		if (!m_bins[Food::VEGETABLE].empty())
 		{
-			food = m_bins[3].top();
-			m_bins[3].pop();
+			food = m_bins[Food::VEGETABLE].top();
+			m_bins[Food::VEGETABLE].pop();
 		}
 		else
 		{
@@ -101,10 +107,10 @@ Food* Store::getFoodByType(Food::FOOD_TYPE ftype){
 		}
 		break;
 	case Food::FRUIT:
-		if (!m_bins[4].empty())
+		if (!m_bins[Food::FRUIT].empty())
 		{
-			food = m_bins[4].top();
-			m_bins[4].pop();
+			food = m_bins[Food::FRUIT].top();
+			m_bins[Food::FRUIT].pop();
 		}
 		else
 		{
@@ -142,9 +148,6 @@ void Store::stockStore(std::string filename)
 														
 				while (std::getline(std::getline(stream, skip, '"'), foodName, '"') >> foodType >> cost) // gets rid of quotes
 				{					
-					//std::cout << "food " << foodName << " "<< foodType << " " <<cost <<  std::endl;
-					foodCount++; //total amount of food in the store
-					
 					//adding food to the stack				
 					if (foodType == "vegetable"){
 						tempFood = new Vegetable(foodName, cost);
@@ -167,69 +170,9 @@ void Store::stockStore(std::string filename)
 				}								
 			}
 		}
-	}
-	// adding stack to the vector
-	m_bins.push_back(sweet);
-	m_bins.push_back(starch);
-	m_bins.push_back(meat);
-	m_bins.push_back(veggie);
-	m_bins.push_back(fruit);
-	
-	/*std::cout << "\nsize of sweet " << sweet.size() << std::endl;
-	std::cout << "size of starch " << starch.size() << std::endl;
-	std::cout << "size of meat " << meat.size() << std::endl;
-	std::cout << "size of veggie " << veggie.size() << std::endl;
-	std::cout << "size of fruit " << fruit.size() << std::endl;
-	std::cout << "size of vector " << m_bins.size() << std::endl;*/	
+	}	
 
 	input.close();
-	
-	/*Food* f = getFoodByType(Food::SWEET);
-	std::cout << "getting food from the getFoodbyType " << *f << std::endl;
-
-
-	Food* a = getFoodByType(Food::SWEET);
-	std::cout << "getting food from the vector " << *a << std::endl;
-
-
-	Food* b = getFoodByType(Food::SWEET);
-	if (b == NULL)
-		std::cout << "it is null";
-	else
-	{
-		std::cout << "getting food from the vector " << *b << std::endl;
-	}*/
-
-
-	
-
-	/*std::cout << "\n-----------------------------------------\n" ;
-	Food* s;
-	s = new Sweet("candy", 25.5);	
-	std::cout << *s << std::endl <<"type is " << s->getType();
-	sweet.push(s);
-	std::cout << "\nsize if the vector " << sweet.size() << std::endl;
-
-	s = new Meat("chicken", 23.6);
-	std::cout << *s;
-	sweet.push(s);
-	std::cout << "\nsize if the vector " << sweet.size() << std::endl;
-
-	s = new Fruit("Banana", 12.5);
-	std::cout << *s;
-	sweet.push(s);
-	std::cout << "\nsize if the vector " << sweet.size() << std::endl;
-
-	s = new Starch("bread", 10.0);
-	std::cout << *s;
-	sweet.push(s);
-	std::cout << "\nsize if the vector " << sweet.size() << std::endl;
-
-	s = new Vegetable("potato", 10.0);
-	std::cout << *s;
-	sweet.push(s);
-	std::cout << "\nsize if the vector " << sweet.size() << std::endl;*/
-
 }
 
 /* Prints the store into the results.txt file*/
@@ -237,9 +180,7 @@ void Store::printStore(std::ofstream& stream){
 	std::stack<Food*> temp;
 	Food* fd = NULL;
 	std::string food = "";
-
-
-	stream << "Zafar Mamarakhimov, Section 05\n";
+	
 	stream << "\n----------- Store -----------" << std::endl;
 	for (unsigned int i = 0; i < m_bins.size(); i++)
 	{
@@ -265,7 +206,7 @@ void Store::printStore(std::ofstream& stream){
 				food = "Sweet";
 			}			
 		}
-		else if (m_bins[i].empty()) // if stack is empty 
+		else if (m_bins[i].empty()) // if stack is empty prints only name and size
 		{
 			switch (i)
 			{
@@ -315,10 +256,7 @@ void Store::printStore(std::ofstream& stream){
 			m_bins[i].push(temp.top());
 			temp.pop();
 		}
-	}
-
-	
-	stream.close();
+	}	
 }
 
 /* Destructor */
