@@ -44,6 +44,7 @@ class BinaryNode
 	Comparable element;
 	BinaryNode *left;
 	BinaryNode *right;
+	int m_size;
 
 	BinaryNode(const Comparable & theElement = -1, BinaryNode *lt = NULL, BinaryNode *rt = NULL, int size = -1)
 		: element(theElement), left(lt), right(rt), m_size(size)  { }
@@ -89,12 +90,14 @@ private:
 
 	int insert(const Comparable & x, BinaryNode<Comparable> * & t) const;
 	int remove(const Comparable & x, BinaryNode<Comparable> * & t) const;
-	void PrintLevels(queue <BinaryNode<Comparable> *> q, int levels);
+	void PrintLevels(std::queue <BinaryNode<Comparable> *> q, int levels);
 	void RemoveResidue(BinaryNode<Comparable> * & t, int *deletions) const;
 	BinaryNode<Comparable> * NthElement(BinaryNode<Comparable> *t, int *nodesVisited, int n) const;
 	void Rank(const Comparable & x, BinaryNode<Comparable> *t, int *nodesVisited) const;
-	bool IsPerfect(queue <BinaryNode<Comparable> *> q, int height);
+	bool IsPerfect(std::queue <BinaryNode<Comparable> *> q, int height);
 	void makeEmpty(BinaryNode<Comparable> * & t) const;
+	bool IsComplete(std::queue <BinaryNode<Comparable> *> q, int height); // <--Extra Credit!
+
 	//IsComplete  <-- Extra Credit!
 
 	/*------------------Members-----------------------------*/
