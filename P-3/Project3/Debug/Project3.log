@@ -1,0 +1,22 @@
+﻿Build started 10/19/2015 5:05:28 PM.
+     1>Project "C:\Users\Zafar\OneDrive\Data Structures\proj3\Project3\Project3\Project3.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         E:\Visual Studio\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BinarySearchTree.cpp Proj3.cpp
+         Proj3.cpp
+     1>c:\users\zafar\onedrive\data structures\proj3\project3\project3\proj3.cpp(40): error C2039: 'ReadFromInputFile' : is not a member of 'Proj3Aux'
+                 c:\users\zafar\onedrive\data structures\proj3\project3\project3\proj3aux.h(21) : see declaration of 'Proj3Aux'
+     1>c:\users\zafar\onedrive\data structures\proj3\project3\project3\proj3.cpp(49): error C2039: 'ReadFromCommandFile' : is not a member of 'Proj3Aux'
+                 c:\users\zafar\onedrive\data structures\proj3\project3\project3\proj3aux.h(21) : see declaration of 'Proj3Aux'
+         BinarySearchTree.cpp
+     1>c:\users\zafar\onedrive\data structures\proj3\project3\project3\augmentedbinarysearchtree.h(92): error C2061: syntax error : identifier 'queue'
+                 c:\users\zafar\onedrive\data structures\proj3\project3\project3\augmentedbinarysearchtree.h(103) : see reference to class template instantiation 'AugmentedBinarySearchTree<Comparable>' being compiled
+     1>c:\users\zafar\onedrive\data structures\proj3\project3\project3\augmentedbinarysearchtree.h(96): error C2061: syntax error : identifier 'queue'
+     1>c:\users\zafar\onedrive\data structures\proj3\project3\project3\augmentedbinarysearchtree.h(96): error C2535: 'bool AugmentedBinarySearchTree<Comparable>::IsPerfect(void)' : member function already defined or declared
+                 c:\users\zafar\onedrive\data structures\proj3\project3\project3\augmentedbinarysearchtree.h(70) : see declaration of 'AugmentedBinarySearchTree<Comparable>::IsPerfect'
+     1>c:\users\zafar\onedrive\data structures\proj3\project3\project3\augmentedbinarysearchtree.h(105): fatal error C1083: Cannot open include file: 'AugmentedBinarySearchTree.cpp': No such file or directory
+         Generating Code...
+     1>Done Building Project "C:\Users\Zafar\OneDrive\Data Structures\proj3\Project3\Project3\Project3.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:02.07
