@@ -54,6 +54,6 @@ int main(int argc, char *argv[])
 		return 1; // Exit with an error
 	}*/
 
-	system("pause");
+	//system("pause");
 	return 0;
 }
