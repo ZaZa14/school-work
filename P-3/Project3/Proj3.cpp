@@ -17,7 +17,7 @@
 *******************************************/
 
 #include "Proj3Aux.h"
-using namespace std;
+#include <cstdlib>
 
 
 int main(int argc, char *argv[])

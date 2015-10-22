@@ -14,11 +14,18 @@
 *******************************************/
 
 #include "Proj3Aux.h"
+using namespace std;
 
 Proj3Aux::Proj3Aux()
 {
 
 }
+
+void Proj3Aux::ReadFromInputFile(std::string input)
+{
+
+}
+
 
 Proj3Aux::~Proj3Aux()
 {

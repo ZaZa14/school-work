@@ -43,7 +43,7 @@ class BinaryNode
 	friend class AugmentedBinarySearchTree<Comparable>;
 
 };
-#endif BINARY_NODE
+#endif // BINARY_NODE
 
 
 // BinarySearchTree class
@@ -77,7 +77,7 @@ public:
 private:
 	BinaryNode<Comparable> *root;
 	const Comparable & elementAt(BinaryNode<Comparable> *t) const;
-	void insert(const Comparable & x, BinaryNode<Comparable> * & t) const;
+	void insert(const Comparable & x, BinaryNode<Comparable> * & t) const; 
 	void remove(const Comparable & x, BinaryNode<Comparable> * & t) const;
 	BinaryNode<Comparable> * findMin(BinaryNode<Comparable> *t) const;
 	BinaryNode<Comparable> * find(const Comparable & x, BinaryNode<Comparable> *t) const;
@@ -88,4 +88,5 @@ private:
 
 #include "BinarySearchTree.cpp"
 #endif
+
 

@@ -23,13 +23,13 @@ using namespace std;
 //const int NUM_NODES_PER_LINE = 6; //For formatting
 
 /**
-* Implements an unbalanced binary search tree.
-* Note that all "matching" is based on the < method.
-*/
+ * Implements an unbalanced binary search tree.
+ * Note that all "matching" is based on the < method.
+ */
 
 /**
-* Construct the tree.
-*/
+ * Construct the tree.
+ */
 template <class Comparable>
 BinarySearchTree<Comparable>::BinarySearchTree() :
 root(NULL)
@@ -39,8 +39,8 @@ root(NULL)
 
 
 /**
-* Copy constructor.
-*/
+ * Copy constructor.
+ */
 template <class Comparable>
 BinarySearchTree<Comparable>::
 BinarySearchTree(const BinarySearchTree<Comparable> & rhs) :
@@ -50,8 +50,8 @@ root(NULL)
 }
 
 /**
-* Destructor for the tree.
-*/
+ * Destructor for the tree.
+ */
 template <class Comparable>
 BinarySearchTree<Comparable>::~BinarySearchTree()
 {
@@ -59,8 +59,8 @@ BinarySearchTree<Comparable>::~BinarySearchTree()
 }
 
 /**
-* Insert x into the tree; duplicates are ignored.
-*/
+ * Insert x into the tree; duplicates are ignored.
+ */
 template <class Comparable>
 void BinarySearchTree<Comparable>::insert(const Comparable & x)
 {
@@ -76,9 +76,9 @@ void BinarySearchTree<Comparable>::remove(const Comparable & x)
 	remove(x, root);
 }
 /**
-* Find the smallest item in the tree.
-* Return smallest item or ITEM_NOT_FOUND if empty.
-*/
+ * Find the smallest item in the tree.
+ * Return smallest item or ITEM_NOT_FOUND if empty.
+ */
 template <class Comparable>
 const Comparable & BinarySearchTree<Comparable>::findMin() const
 {
@@ -86,9 +86,9 @@ const Comparable & BinarySearchTree<Comparable>::findMin() const
 }
 
 /**
-* Find item x in the tree.
-* Return the matching item or throw an exception if not found
-*/
+ * Find item x in the tree.
+ * Return the matching item or throw an exception if not found
+ */
 template <class Comparable>
 const Comparable & BinarySearchTree<Comparable>::
 find(const Comparable & x) const
@@ -97,8 +97,8 @@ find(const Comparable & x) const
 }
 
 /**
-* Make the tree logically empty.
-*/
+ * Make the tree logically empty.
+ */
 template <class Comparable>
 void BinarySearchTree<Comparable>::makeEmpty()
 {
@@ -106,9 +106,9 @@ void BinarySearchTree<Comparable>::makeEmpty()
 }
 
 /**
-* Test if the tree is logically empty.
-* Return true if empty, false otherwise.
-*/
+ * Test if the tree is logically empty.
+ * Return true if empty, false otherwise.
+ */
 template <class Comparable>
 bool BinarySearchTree<Comparable>::isEmpty() const
 {
@@ -116,8 +116,8 @@ bool BinarySearchTree<Comparable>::isEmpty() const
 }
 
 /**
-* Print the tree contents in sorted order.
-*/
+ * Print the tree contents in sorted order.
+ */
 template <class Comparable>
 void BinarySearchTree<Comparable>::printTree() const
 {
@@ -128,8 +128,8 @@ void BinarySearchTree<Comparable>::printTree() const
 }
 
 /**
-* Deep copy.
-*/
+ * Deep copy.
+ */
 template <class Comparable>
 const BinarySearchTree<Comparable> &
 BinarySearchTree<Comparable>::
@@ -145,9 +145,9 @@ operator=(const BinarySearchTree<Comparable> & rhs)
 
 
 /**
-* Internal method to get element field in node t.
-* Return the element field or throw exception if t is NULL.
-*/
+ * Internal method to get element field in node t.
+ * Return the element field or throw exception if t is NULL.
+ */
 template <class Comparable>
 const Comparable & BinarySearchTree<Comparable>::
 elementAt(BinaryNode<Comparable> *t) const
@@ -170,7 +170,7 @@ void BinarySearchTree<Comparable>::
 insert(const Comparable & x, BinaryNode<Comparable> * & t) const
 {
 	if (t == NULL)
-		t = new BinaryNode(x, NULL, NULL);
+		t = new BinaryNode<Comparable>(x, NULL, NULL);
 	else if (x < t->element)
 		insert(x, t->left);
 	else if (t->element < x)
@@ -180,11 +180,11 @@ insert(const Comparable & x, BinaryNode<Comparable> * & t) const
 }
 
 /**
-* Internal method to remove from a subtree.
-* x is the item to remove.
-* t is the node that roots the tree.
-* Set the new root.
-*/
+ * Internal method to remove from a subtree.
+ * x is the item to remove.
+ * t is the node that roots the tree.
+ * Set the new root.
+ */
 template <class Comparable>
 void BinarySearchTree<Comparable>::
 remove(const Comparable & x, BinaryNode < Comparable > * & t) const
@@ -203,7 +203,7 @@ remove(const Comparable & x, BinaryNode < Comparable > * & t) const
 	}
 	else
 	{
-		BinaryNode *oldNode = t;
+		BinaryNode <Comparable> *oldNode = t;
 		t = (t->left != NULL) ? t->left : t->right;
 		delete oldNode;
 	}
@@ -212,9 +212,9 @@ remove(const Comparable & x, BinaryNode < Comparable > * & t) const
 
 
 /**
-* Internal method to find the smallest item in a subtree t.
-* Return node containing the smallest item.
-*/
+ * Internal method to find the smallest item in a subtree t.
+ * Return node containing the smallest item.
+ */
 template <class Comparable>
 BinaryNode<Comparable> *
 BinarySearchTree<Comparable>::findMin(BinaryNode<Comparable> *t) const
@@ -228,11 +228,11 @@ BinarySearchTree<Comparable>::findMin(BinaryNode<Comparable> *t) const
 
 
 /**
-* Internal method to find an item in a subtree.
-* x is item to search for.
-* t is the node that roots the tree.
-* Return node containing the matched item.
-*/
+ * Internal method to find an item in a subtree.
+ * x is item to search for.
+ * t is the node that roots the tree.
+ * Return node containing the matched item.
+ */
 template <class Comparable>
 BinaryNode<Comparable> *
 BinarySearchTree<Comparable>::
@@ -248,26 +248,26 @@ find(const Comparable & x, BinaryNode<Comparable> *t) const
 		return t;    // Match
 }
 /****** NONRECURSIVE VERSION*************************
-template <class Comparable>
-BinaryNode<Comparable> *
-BinarySearchTree<Comparable>::
-find( const Comparable & x, BinaryNode<Comparable> *t ) const
-{
-while( t != NULL )
-if( x < t->element )
-t = t->left;
-else if( t->element < x )
-t = t->right;
-else
-return t;    // Match
+		template <class Comparable>
+		BinaryNode<Comparable> *
+		BinarySearchTree<Comparable>::
+		find( const Comparable & x, BinaryNode<Comparable> *t ) const
+		{
+		while( t != NULL )
+		if( x < t->element )
+		t = t->left;
+		else if( t->element < x )
+		t = t->right;
+		else
+		return t;    // Match
 
-return NULL;   // No match
-}
-*****************************************************/
+		return NULL;   // No match
+		}
+		*****************************************************/
 
 /**
-* Internal method to make subtree empty.
-*/
+ * Internal method to make subtree empty.
+ */
 template <class Comparable>
 void BinarySearchTree<Comparable>::
 makeEmpty(BinaryNode<Comparable> * & t) const
@@ -282,8 +282,8 @@ makeEmpty(BinaryNode<Comparable> * & t) const
 }
 
 /**
-* Internal method to print a subtree rooted at t in sorted order.
-*/
+ * Internal method to print a subtree rooted at t in sorted order.
+ */
 template <class Comparable>
 void BinarySearchTree<Comparable>::printTree(BinaryNode<Comparable> *t) const
 {
@@ -296,8 +296,8 @@ void BinarySearchTree<Comparable>::printTree(BinaryNode<Comparable> *t) const
 }
 
 /**
-* Internal method to clone subtree.
-*/
+ * Internal method to clone subtree.
+ */
 template <class Comparable>
 BinaryNode<Comparable> *
 BinarySearchTree<Comparable>::clone(BinaryNode<Comparable> * t) const
@@ -313,3 +313,4 @@ BinarySearchTree<Comparable>::clone(BinaryNode<Comparable> * t) const
 
 
 #endif
+

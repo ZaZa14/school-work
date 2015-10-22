@@ -52,7 +52,7 @@ class BinaryNode
 	friend class BinarySearchTree<Comparable>;
 
 };
-#endif BINARY_NODE
+#endif  /*BINARY_NODE*/
 
 template <class Comparable>
 class AugmentedBinarySearchTree
@@ -106,4 +106,4 @@ private:
 };
 
 #include "AugmentedBinarySearchTree.cpp"
-#endif AUGMENTED_BINARY_SEARCH_TREE_H 
+#endif //AUGMENTED_BINARY_SEARCH_TREE_H 

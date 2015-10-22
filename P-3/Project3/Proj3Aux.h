@@ -16,15 +16,24 @@
 #ifndef _PROJ3AUX_H
 #define _PROJ3AUX_H
 #include <iostream>
+#include <string>
+#include <fstream>
 
+#include "BinarySearchTree.h"
+#include "AugmentedBinarySearchTree.h"
 class Proj3Aux
 {
 public:
 	Proj3Aux();
 	~Proj3Aux();
 
+	void ReadFromInputFile(std::string input);
+
 private:
 
+	AugmentedBinarySearchTree<int> tree; //it will be tree
+	ifstream inpuFile;
+	ofstream outputFile;
 };
 
 

@@ -16,19 +16,11 @@
 #ifndef _EXCEPTIONS_H
 #define _EXCEPTIONS_H
 
-class Exceptions
+class ItemNotFound
 {
 public:
-	Exceptions();
-	//~Exceptions();
-
-private:
-
+	ItemNotFound();	
+	
 };
-
-
-
-
-
 
 #endif // !_EXCEPTIONS_H
