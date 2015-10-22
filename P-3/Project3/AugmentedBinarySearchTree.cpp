@@ -113,12 +113,29 @@ insert(const Comparable & x) // ------------->>>>>>>>> why it returns int
 	return 1;
 }
 
-// inserts 
+// inserts element into the BST, starting point is root
 template <class Comparable>
 int AugmentedBinarySearchTree<Comparable>::
 insert(const Comparable & x, BinaryNode<Comparable>* & t) const
 {
-	return 1;
+	if (t == NULL){
+		t = new BinaryNode<Comparable>(x, NULL, NULL);
+		return 1;
+	}
+	else if (x < t->element){
+		insert(x, t->left);
+		return 1;
+	}
+	else if (x > t->element){
+		insert(x, t->right);
+		return 1;
+	}
+	else if (x == t->element){  // Duplicate
+		return 0;
+	}
+
+
+	
 }
 
 // removes an element from a tree

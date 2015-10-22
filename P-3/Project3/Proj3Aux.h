@@ -6,9 +6,8 @@
 ** Section: 5
 ** E-mail:  mzafar2@umbc.edu
 **
-**  C++ file:
-**	Breif Description of the file
-**
+**  C++ file:	
+**	This is a header file for Proj3Aux.cpp
 **
 **
 *******************************************/
@@ -25,18 +24,29 @@ class Proj3Aux
 {
 public:
 	Proj3Aux();
-	~Proj3Aux();
+	~Proj3Aux();		
+	void DoPrintCommand(std::string command, int depth);
+	int DoRemoveCommand(std::string command, int element);
+	int GetMedianCommand(std::string command);
+	int GetNthElementCommand(std::string command, int nthElement);
+	int GetRankCommand(std::string command, int element);
+	int GetResidualsCommand(std::string command);
+	bool isComplete(std::string command);
+	bool isPerfect(std::string command);
+	int ReadFromInputFile(char* inputFile);
+	int ReadFromCommandFile(char* commandFile);
 
-	void ReadFromInputFile(std::string input);
+	// ------------------------------------------------------
+	// this is my own method for testing purposes
+	void insertNum(int numer);
+
+
 
 private:
 
-	AugmentedBinarySearchTree<int> tree; //it will be tree
-	ifstream inpuFile;
-	ofstream outputFile;
+	AugmentedBinarySearchTree<int> m_tree; //it will be tree
+	ifstream inFile;					   // input file
+	//ofstream outputFile;
 };
-
-
-
 
 #endif // !_PROJ3AUX_H

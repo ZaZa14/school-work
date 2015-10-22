@@ -34,6 +34,19 @@ int main(int argc, char *argv[])
 	}
 	Proj3Aux sim;
 
+	// ***********************************************************
+	// testing
+
+	sim.insertNum(5);
+	sim.insertNum(2);
+	sim.insertNum(6);
+	sim.insertNum(5);
+
+
+
+	//**************************************************************
+
+
 	/* Create Augmented BST */
 	//AugmentedBinarySearchTree ABSTree = AugmentedBinarySearchTree();
 	/* Read from input file to BinarySearchTree  */
