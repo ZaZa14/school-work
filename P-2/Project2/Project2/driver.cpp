@@ -28,13 +28,13 @@ int main(int argc, char* argv[]) {
 
 	//print greeting	
 	printGreeting();
-	
-	Manager manager("Sample3Store.txt","Sample3Orders.txt");
+
 
 	//open output file
 	outputFileStream.open("results.txt", ios::app);
+	//take in store and order files
+	Manager manager(argv[1], argv[2]);	
 
-	//Manager manager(argv[1], argv[2]);	
 
 	manager.printStatus(outputFileStream);
 
