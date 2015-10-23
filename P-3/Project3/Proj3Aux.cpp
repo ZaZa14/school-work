@@ -106,14 +106,23 @@ Proj3Aux::~Proj3Aux()
 
 
 // ***************************************************************************************
+// ---------------For testting purposes------------------------------------------------
 void Proj3Aux::insertNum(int numer){
 
-	if (m_tree.insert(numer) == 0){
-		
-		cout << "Not inserted " << numer << endl;
+	if (m_tree.insert(numer))
+	{
+		cout << "inserted " << numer << endl;		
 	}
 	else
 	{
-		cout << "inserted " << numer << endl;
+		cout << "Not inserted " << numer << endl;
 	}
 }
+
+/*void Proj3Aux::findMin()
+{
+	BinaryNode<int>* temp = m_tree.findMin();
+
+	cout << "\n min " <<temp->element;
+}*/
+

@@ -82,6 +82,11 @@ public:
 	BinaryNode<Comparable> * findMin(BinaryNode<Comparable> *t) const;
 
 
+	//******************************************************************************
+	// for test
+	BinaryNode<Comparable>*findMin();
+
+
 	/*---------------Setters---------------------------*/
 
 	int insert(const Comparable & x);
