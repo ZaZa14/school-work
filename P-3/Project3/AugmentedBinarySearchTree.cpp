@@ -35,7 +35,9 @@ AugmentedBinarySearchTree<Comparable>::~AugmentedBinarySearchTree()
 template <class Comparable>
 int AugmentedBinarySearchTree<Comparable>::remove(const Comparable & x)
 {
-	return 0;
+
+	return remove(x, root);
+	//return 0;
 }
 
 // returns true if tree is perfect
@@ -171,12 +173,44 @@ insert(const Comparable & x, BinaryNode<Comparable>* & t) const
 	
 }
 
+//--------------------------------------------------------
 // removes an element from a tree
 template <class Comparable>
 int AugmentedBinarySearchTree<Comparable>::
 remove(const Comparable & x, BinaryNode<Comparable> * & t) const
 {
-	return 0;
+	int result;
+	if (t == NULL)
+		return result  = 0;   // Item not found; do nothing
+	if (x < t->element){
+		if(remove(x, t->left)){
+			--t->m_size;
+			result = 1;
+			cout << "weight " << t->m_size << endl; 
+		}
+	}
+	else if ( x > t->element){
+		if (remove(x, t->right)){
+			--t->m_size;
+			result = 1;
+			cout << "weight " << t->m_size << endl; 
+		}
+	}
+	else if (t->left != NULL && t->right != NULL) // Two children
+	{
+		t->element = findMin(t->right)->element;
+		remove(t->element, t->right);
+	}
+	else
+	{
+		BinaryNode <Comparable> *oldNode = t;
+		cout << "node removed " << x << endl;
+		t = (t->left != NULL) ? t->left : t->right;
+		delete oldNode;
+		result = 1;
+	}
+
+	return result;
 }
 
 // prints levels of BST using level order traversal
@@ -189,7 +223,8 @@ PrintLevels(std::queue <BinaryNode<Comparable> *> q, int levels)
 
 // Removes residue
 template <class Comparable>
-void AugmentedBinarySearchTree<Comparable>::RemoveResidue(BinaryNode<Comparable> * & t, int *deletions) const
+void AugmentedBinarySearchTree<Comparable>::
+RemoveResidue(BinaryNode<Comparable> * & t, int *deletions) const
 {
 
 }

@@ -46,7 +46,8 @@ int main(int argc, char *argv[])
 
 	//sim.findMin();
 
-
+	sim.remove(6);
+	sim.remove(4);
 
 
 	//**************************************************************

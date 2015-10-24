@@ -40,7 +40,7 @@ public:
 	// ******this is my own method for testing purposes********
 	void insertNum(int numer);
 	void findMin();
-
+	void remove(int number);
 
 
 private:

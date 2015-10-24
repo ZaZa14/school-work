@@ -109,6 +109,7 @@ Proj3Aux::~Proj3Aux()
 // ---------------For testting purposes------------------------------------------------
 void Proj3Aux::insertNum(int numer){
 
+	cout << "--------insert--------" << endl;
 	if (m_tree.insert(numer))
 	{
 		cout << "inserted " << numer << endl;		
@@ -117,6 +118,15 @@ void Proj3Aux::insertNum(int numer){
 	{
 		cout << "Not inserted " << numer << endl;
 	}
+}
+
+void Proj3Aux::remove(int number){
+	cout << "------ remove -------" << endl;
+
+	if(m_tree.remove(number))
+		cout << "removed number " << number << endl;
+	else
+		cout << "number " << number << " is not found" << endl;
 }
 
 /*void Proj3Aux::findMin()

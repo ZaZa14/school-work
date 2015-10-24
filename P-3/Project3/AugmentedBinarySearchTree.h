@@ -83,8 +83,8 @@ public:
 
 
 	//******************************************************************************
-	// for test
-	BinaryNode<Comparable>*findMin();
+	// for test only 
+	BinaryNode<Comparable>*findMin(); //test function
 
 
 	/*---------------Setters---------------------------*/
