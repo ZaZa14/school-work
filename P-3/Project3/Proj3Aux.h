@@ -18,6 +18,8 @@
 #include <string>
 #include <fstream>
 
+
+
 #include "BinarySearchTree.h"
 #include "AugmentedBinarySearchTree.h"
 class Proj3Aux
@@ -37,8 +39,11 @@ public:
 	int ReadFromCommandFile(char* commandFile);
 
 	// ------------------------------------------------------
-	// this is my own method for testing purposes
+
+	// ******this is my own method for testing purposes********
 	void insertNum(int numer);
+	void findMin();
+
 
 
 

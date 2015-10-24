@@ -39,11 +39,16 @@ int main(int argc, char *argv[])
 
 	sim.insertNum(5);
 	sim.insertNum(2);
-	sim.insertNum(6);
+
+	sim.insertNum(6);	
 	sim.insertNum(7);
-	sim.insertNum(5);
-	sim.insertNum(2);
-	sim.insertNum(6);
+	sim.insertNum(3);
+	sim.insertNum(7);
+
+	//sim.findMin();
+
+
+
 
 
 	//**************************************************************

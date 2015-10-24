@@ -23,7 +23,7 @@ Manny Meatloaf
 Requests: Meat Meat Meat Sweet 
 -------
 Ted Barry
-Requests: Meat Meat Vegetable Starch Meat Fruit 
+Requests: Meat Vegetable Starch Meat Fruit 
 -------
 ------------ Orders ------------
 Mike Cannan  
@@ -57,7 +57,7 @@ Pork Chops $6.89
 ***Total: $24.98
 -----
 Ted Barry - Unable to complete order
-Unfilled Requests: Meat Meat Vegetable Starch Meat Fruit 
+Unfilled Requests: Meat Vegetable Starch Meat Fruit 
 -----
 
 ----------- Store -----------
