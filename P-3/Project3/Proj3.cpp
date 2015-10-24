@@ -39,8 +39,14 @@ int main(int argc, char *argv[])
 
 	sim.insertNum(5);
 	sim.insertNum(2);
-	sim.insertNum(6);
-	sim.insertNum(5);
+
+	sim.insertNum(6);	
+	sim.insertNum(7);
+	sim.insertNum(3);
+	sim.insertNum(7);
+
+	//sim.findMin();
+
 
 
 
@@ -67,6 +73,6 @@ int main(int argc, char *argv[])
 		return 1; // Exit with an error
 	}*/
 
-	system("pause");
+	//system("pause");
 	return 0;
 }

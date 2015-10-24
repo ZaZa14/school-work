@@ -28,7 +28,7 @@ AugmentedBinarySearchTree(const AugmentedBinarySearchTree<Comparable> & rhs) : r
 template <class Comparable>
 AugmentedBinarySearchTree<Comparable>::~AugmentedBinarySearchTree()
 {
-	//makeclean
+	makeEmpty();
 }
 
 // removes element from the tree
@@ -63,7 +63,7 @@ void AugmentedBinarySearchTree<Comparable>::PrintLevels(int numlevels)
 template <class Comparable>
 void AugmentedBinarySearchTree<Comparable>::makeEmpty()
 {
-
+	makeEmpty(root);
 }
 
 // removes residue from a tree
@@ -101,8 +101,15 @@ template <class Comparable>
 BinaryNode<Comparable>* AugmentedBinarySearchTree<Comparable>::
 findMin(BinaryNode<Comparable> *t) const
 {
-	BinaryNode<Comparable>* temp;
-	return temp;
+	
+if (t == NULL)
+	return NULL;
+if (t->left == NULL)
+	return t;
+return findMin(t->left);
+
+	/*BinaryNode<Comparable>* temp;
+	return temp;*/
 }
 
 // inserts element into the BST 
@@ -110,7 +117,7 @@ template <class Comparable>
 int AugmentedBinarySearchTree<Comparable>::
 insert(const Comparable & x) // ------------->>>>>>>>> why it returns int
 {
-	return 1;
+	return (insert(x, root));
 }
 
 // inserts element into the BST, starting point is root
@@ -118,22 +125,50 @@ template <class Comparable>
 int AugmentedBinarySearchTree<Comparable>::
 insert(const Comparable & x, BinaryNode<Comparable>* & t) const
 {
-	if (t == NULL){
-		t = new BinaryNode<Comparable>(x, NULL, NULL);
+
+	int num ;
+	if (t == NULL)
+	{
+		t = new BinaryNode<Comparable>(x, NULL, NULL, 1);
+		cout << "node inserted: " << x << " weight " <<t->m_size <<endl;
+		//num = 1;
 		return 1;
 	}
-	else if (x < t->element){
-		insert(x, t->left);
-		return 1;
-	}
-	else if (x > t->element){
-		insert(x, t->right);
-		return 1;
-	}
-	else if (x == t->element){  // Duplicate
+	else if (x == t->element)
+	{  // Duplicate
+		cout << "Duplicate\n";		
 		return 0;
+	}	
+	else if (x < t->element)
+	{
+		cout << "go left\n";
+		if (insert(x, t->left)){
+			t->m_size = t->m_size + 1;
+			num = 1;
+			//t->m_size += t->left->m_size;
+			//t->m_size = t->left->m_size + 1;
+			cout << "weight " << t->m_size << endl; 
+		}
+		else
+			num = 0;		
+		//return 1;
+	}
+	else if (x > t->element)
+	{
+		cout << "go right\n";
+		if(insert(x, t->right)){
+			t->m_size = t->m_size + 1;
+			num = 1;
+			//t->m_size += t->right->m_size;
+			//t->m_size = t->right->m_size +1;
+			cout << "weight " << t->m_size << endl; 
+		}
+		else
+			num = 0;
+		//return 1;
 	}
 
+	return num;
 
 	
 }
@@ -192,7 +227,15 @@ template <class Comparable>
 void AugmentedBinarySearchTree<Comparable>::
 makeEmpty(BinaryNode<Comparable>* & t) const
 {
+	if(t != NULL)
+	{
+		makeEmpty(t->left);
+		makeEmpty(t->right);
 
+		delete t;
+	}
+
+	t = NULL;
 }
 
 // 
@@ -202,6 +245,8 @@ IsComplete(std::queue <BinaryNode<Comparable> *> q, int height)
 {
 	return false;
 }
+
+
 
 
 #endif // !_AUGMENTED_BINARY_SEARCH_TREE_CPP

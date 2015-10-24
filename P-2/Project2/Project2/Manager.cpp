@@ -11,10 +11,12 @@
 ***********************************************/
 
 #include "Manager.h"
+#include <cstdlib>
 #include <queue>
-#include<string>
+#include <string>
 
 using namespace std;
+
 // Default constructor
 Manager::Manager()
 {
@@ -25,6 +27,7 @@ Manager::Manager()
  * and creates orders ann stores */
 Manager::Manager(char* store, char* order)
 {
+
 	createStore(store);
 	createOrders(order);
 }
@@ -36,7 +39,6 @@ void Manager::createStore(std::string filename)
 	m_store.stockStore(filename);
 	
 }
-
 
 
 // Creates orders from input file
@@ -90,13 +92,10 @@ void Manager::fillOrders(std::ofstream& stream)
 					
 				}
 				else
-				{
-					//stream << tempFood->getName() << " $" << tempFood->getCost() << endl;
+				{					
 					foodVector.push_back(tempFood);
 				}
-
-				 //adding foods in the vector
-				//stream << "size of the vector " << foodVector.size() << endl;
+				 
 			}
 			
 			//---------------------------------------------------------------------------------
