@@ -108,12 +108,12 @@ Proj3Aux::~Proj3Aux()
 // ***************************************************************************************
 void Proj3Aux::insertNum(int numer){
 
-	if (m_tree.insert(numer) == 0){
+	if (m_tree.insert(numer)){		
 		
-		cout << "Not inserted " << numer << endl;
+		cout << "inserted " << numer << endl;
 	}
 	else
 	{
-		cout << "inserted " << numer << endl;
+		cout << "Not inserted " << numer << endl;		
 	}
 }

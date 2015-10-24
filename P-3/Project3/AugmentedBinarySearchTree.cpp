@@ -2,7 +2,7 @@
 #define _AUGMENTED_BINARY_SEARCH_TREE_CPP
 
 #include "AugmentedBinarySearchTree.h"
-//#include "BinarySearchTree.h"
+
 
 using namespace std;
 
@@ -28,7 +28,7 @@ AugmentedBinarySearchTree(const AugmentedBinarySearchTree<Comparable> & rhs) : r
 template <class Comparable>
 AugmentedBinarySearchTree<Comparable>::~AugmentedBinarySearchTree()
 {
-	//makeclean
+	makeEmpty();
 }
 
 // removes element from the tree
@@ -63,7 +63,7 @@ void AugmentedBinarySearchTree<Comparable>::PrintLevels(int numlevels)
 template <class Comparable>
 void AugmentedBinarySearchTree<Comparable>::makeEmpty()
 {
-
+	makeEmpty(root);
 }
 
 // removes residue from a tree
@@ -110,7 +110,15 @@ template <class Comparable>
 int AugmentedBinarySearchTree<Comparable>::
 insert(const Comparable & x) // ------------->>>>>>>>> why it returns int
 {
-	return 1;
+	if (insert(x, root))
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+	
 }
 
 // inserts element into the BST, starting point is root
@@ -119,15 +127,26 @@ int AugmentedBinarySearchTree<Comparable>::
 insert(const Comparable & x, BinaryNode<Comparable>* & t) const
 {
 	if (t == NULL){
-		t = new BinaryNode<Comparable>(x, NULL, NULL);
+		t = new BinaryNode<Comparable>(x, NULL, NULL, 1);
+		cout << "weight of node " << t->m_size << endl;
 		return 1;
 	}
 	else if (x < t->element){
-		insert(x, t->left);
+		int weight  = insert(x, t->left);
+		if (weight){
+			t->m_size += t->left->m_size;
+			cout << "weight of left " << t->m_size << endl;
+		}	
+
 		return 1;
 	}
 	else if (x > t->element){
-		insert(x, t->right);
+		int weight = insert(x, t->right);
+		if (weight){
+			t->m_size += t->right->m_size;
+			cout << "weight of right " << t->m_size  << endl;
+		}
+
 		return 1;
 	}
 	else if (x == t->element){  // Duplicate
@@ -135,7 +154,7 @@ insert(const Comparable & x, BinaryNode<Comparable>* & t) const
 	}
 
 
-	
+	//makeEmpty();
 }
 
 // removes an element from a tree
@@ -192,7 +211,13 @@ template <class Comparable>
 void AugmentedBinarySearchTree<Comparable>::
 makeEmpty(BinaryNode<Comparable>* & t) const
 {
-
+	if (t != NULL)
+	{
+		makeEmpty(t->left);
+		makeEmpty(t->right);
+		delete t;
+	}
+	t = NULL;
 }
 
 // 
