@@ -2,7 +2,7 @@
 ** File:    Proj3.cpp
 ** Project: CMSC 341 Project 3, Fall 2015
 ** Author:  Zafar Mamarakhimov
-** Date:    
+** Date:    10/28/2015
 ** Section: 5
 ** E-mail:  mzafar2@umbc.edu
 **
@@ -34,45 +34,26 @@ int main(int argc, char *argv[])
 	}
 	Proj3Aux sim;
 
-	// ***********************************************************
-	// testing
-
-	sim.insertNum(5);
-	sim.insertNum(2);
-	sim.insertNum(6);	
-	sim.insertNum(7);
-	sim.insertNum(3);
-	sim.insertNum(7);
-
-	//sim.findMin();
-
-	sim.remove(6);
-	sim.remove(4);
-
-
-	//**************************************************************
-
-
 	/* Create Augmented BST */
 	//AugmentedBinarySearchTree ABSTree = AugmentedBinarySearchTree();
 	/* Read from input file to BinarySearchTree  */
-	/*if (!sim.ReadFromInputFile(argv[1]))
+	if (!sim.ReadFromInputFile(argv[1]))
 	{
 		cerr << "File Not Found Error: Filename '"
 			<< argv[1]
 			<< "' not found\n";
 		return 1; // Exit with an error
-	}*/
+	}
 
 	/* Read from Command file */
-	/*if (!sim.ReadFromCommandFile(argv[2]))
+	if (!sim.ReadFromCommandFile(argv[2]))
 	{
 		cerr << "File Not Found Error: Filename '"
 			<< argv[2]
 			<< "' not found\n";
 		return 1; // Exit with an error
-	}*/
+	}
 
-	//system("pause");
+	
 	return 0;
 }

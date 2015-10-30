@@ -36,18 +36,11 @@ public:
 	int ReadFromInputFile(char* inputFile);
 	int ReadFromCommandFile(char* commandFile);
 
-	// ------------------------------------------------------
-	// ******this is my own method for testing purposes********
-	void insertNum(int numer);
-	void findMin();
-	void remove(int number);
-
-
 private:
 
 	AugmentedBinarySearchTree<int> m_tree; //it will be tree
 	ifstream inFile;					   // input file
-	//ofstream outputFile;
+	
 };
 
 #endif // !_PROJ3AUX_H

@@ -24,9 +24,7 @@
 
 using namespace std;
 
-//==================================================
 // default constructor makes root NULL
-//==================================================
 template <class Comparable>
 AugmentedBinarySearchTree<Comparable>::
 AugmentedBinarySearchTree() : root(NULL)
@@ -34,9 +32,7 @@ AugmentedBinarySearchTree() : root(NULL)
 
 }
 
-//===================================================
 // overloaded constructor
-//===================================================
 template <class Comparable>
 AugmentedBinarySearchTree<Comparable>::
 AugmentedBinarySearchTree(const AugmentedBinarySearchTree<Comparable> & rhs) : root(NULL)
@@ -44,18 +40,15 @@ AugmentedBinarySearchTree(const AugmentedBinarySearchTree<Comparable> & rhs) : r
 
 }
 
-//============================================================
+
 // Destructor calls makeEmpty() function
-//============================================================
 template <class Comparable>
 AugmentedBinarySearchTree<Comparable>::~AugmentedBinarySearchTree()
 {
 	makeEmpty();
 }
 
-//======================================================
 // removes element from the tree
-//=======================================================
 template <class Comparable>
 int AugmentedBinarySearchTree<Comparable>:: 
 remove(const Comparable & x)
@@ -64,9 +57,7 @@ remove(const Comparable & x)
 	  return num;
 }
 
-//===========================================================
 // returns true if tree is perfect
-//===========================================================
 template <class Comparable>
 bool AugmentedBinarySearchTree<Comparable>::
 IsPerfect()
@@ -74,9 +65,7 @@ IsPerfect()
 	return false;	// by default it is false
 }
 
-//===========================================================
 // returns true if tree is complete
-//===========================================================
 template <class Comparable>
 bool AugmentedBinarySearchTree<Comparable>::
 IsComplete()
@@ -84,9 +73,7 @@ IsComplete()
 	return false; // by default it is false
 }
 
-//===========================================================
 // prints levels of the tree using level order traverse
-//===========================================================
 template <class Comparable>
 void AugmentedBinarySearchTree<Comparable>::
 PrintLevels(int numlevels)
@@ -96,9 +83,7 @@ PrintLevels(int numlevels)
 	PrintLevels(nodeQueue, numlevels);
 }
 
-//===========================================================
 // removes all elements from a tree
-//===========================================================
 template <class Comparable>
 void AugmentedBinarySearchTree<Comparable>::
 makeEmpty()
@@ -106,18 +91,14 @@ makeEmpty()
 	makeEmpty(root);
 }
 
-//===========================================================
 // removes residue from a tree
-//===========================================================
 template <class Comparable>
 int AugmentedBinarySearchTree<Comparable>::RemoveResidue()
 {
 	return 0;
 }
 
-//===========================================================
 // returns n-th element in BST 
-//===========================================================
 template <class Comparable>
 const Comparable& AugmentedBinarySearchTree<Comparable>::
 NthElement(int n)
@@ -135,9 +116,7 @@ NthElement(int n)
 	
 }
 
-//===========================================================
 // returns the position of the element in BST
-//===========================================================
 template <class Comparable>
 int AugmentedBinarySearchTree<Comparable>::
 Rank(const Comparable& x)
@@ -198,9 +177,7 @@ const Comparable& AugmentedBinarySearchTree<Comparable>::Median()
 
 }
 
-//==============================================================
 // returns minimum node in BST
-//==============================================================
 template <class Comparable>
 BinaryNode<Comparable>* AugmentedBinarySearchTree<Comparable>::
 findMin(BinaryNode<Comparable> *t) const
@@ -216,9 +193,7 @@ findMin(BinaryNode<Comparable> *t) const
 
 }
 
-//==============================================================
 // inserts element into the BST 
-//==============================================================
 template <class Comparable>
 int AugmentedBinarySearchTree<Comparable>::
 insert(const Comparable & x) // ------------->>>>>>>>> why it returns int
@@ -239,11 +214,13 @@ insert(const Comparable & x, BinaryNode<Comparable>* & t) const
 		return 1;
 	}
 	else if (x == t->element)
-	{  // If Duplicate is found don`t insert it				
+	{  // If Duplicate is found don`t insert it
+		cout << "Duplicate\n";		
 		return 0;
 	}	
 	else if (x < t->element)
-	{		
+	{
+		//cout << "go left" << endl;
 		// if there is no duplicate incrementn, insert new element
 		// and increment m_size of the parent node of the new element by 1
 		if (insert(x, t->left)){
@@ -273,9 +250,8 @@ insert(const Comparable & x, BinaryNode<Comparable>* & t) const
 	
 }
 
-//==============================================================
+//--------------------------------------------------------
 // removes an element from a tree
-//==============================================================
 template <class Comparable>
 int AugmentedBinarySearchTree<Comparable>::
 remove(const Comparable & x, BinaryNode<Comparable> * & t) const
@@ -314,17 +290,79 @@ remove(const Comparable & x, BinaryNode<Comparable> * & t) const
 	return result;
 }
 
-//=====================================================================
 // prints levels of BST using level order traversal
-//=====================================================================
 template <class Comparable>
 void AugmentedBinarySearchTree<Comparable>::
 PrintLevels(std::queue <BinaryNode<Comparable> *> q, int levels)
 {
 		
-	queue < BinaryNode<Comparable>* > parentQueue;
+	queue < BinaryNode<Comparable>* > parentQueue, currentLevel, nextLevel;
 	int count = 0;
+	//BinaryNode<Comparable>* right, left ;
 
+	
+
+
+
+	/*while(count<levels){
+		
+		parentQueue.push(q.front());
+		cout <<"Level " << count << ": " ;
+		BinaryNode<Comparable>* temp = q.front();
+
+		for(int i = 0; i < pow(2, count); i++)
+		{
+			while(!q.empty())
+			{
+				cout << temp -> element << endl;
+				q.pop();
+			}
+
+			if(temp->left != NULL) //if left is not NULL enqueue the left child
+			{
+				q.push(temp->left);
+			}
+
+			if (temp->right != NULL) //if  right is not NULL enqueue the right child
+			{
+				q.push(temp->right);
+			}
+
+			if (i%6 == 0)
+			{
+				cout << endl;
+			}
+			cout << "Node " ;
+			
+		}
+
+		parentQueue.pop();
+		cout << endl;
+		
+				
+		count++;
+	}*/
+
+
+	/*	
+	void printLevelOrder(BinaryTree *root) {
+	  if (!root) return;
+	  queue<BinaryTree*> currentLevel, nextLevel;
+	  currentLevel.push(root);
+	  while (!currentLevel.empty()) {
+	    BinaryTree *currNode = currentLevel.front();
+	    currentLevel.pop();
+	    if (currNode) {
+	      cout << currNode->data << " ";
+	      nextLevel.push(currNode->left);
+	      nextLevel.push(currNode->right);
+	    }
+	    if (currentLevel.empty()) {
+	      cout << endl;
+	      swap(currentLevel, nextLevel);
+	    }
+	  }
+}*/
 	while(!q.empty()) //while the queue is not empty
 	{
 		BinaryNode<Comparable>* temp = q.front();
@@ -344,15 +382,13 @@ PrintLevels(std::queue <BinaryNode<Comparable> *> q, int levels)
 
 
 		q.pop();
-		count++;
+		//count++;
 
 	}
 	
 }
 
-//=================================================================
 // Removes residue
-//=================================================================
 template <class Comparable>
 void AugmentedBinarySearchTree<Comparable>::
 RemoveResidue(BinaryNode<Comparable> * & t, int *deletions) const
@@ -426,9 +462,7 @@ Rank(const Comparable & x, BinaryNode<Comparable> *t, int *nodesVisited) const
     
 }
 
-//==================================================================================
 // returns true if the tree is perfect (complete & balanced & all levels are filled)
-//===================================================================================
 template <class Comparable>
 bool AugmentedBinarySearchTree<Comparable>::
 IsPerfect(std::queue <BinaryNode<Comparable> *> q, int height)
@@ -436,9 +470,7 @@ IsPerfect(std::queue <BinaryNode<Comparable> *> q, int height)
 	return false;
 }
 
-//===========================================================
 // Deletes all nodes in the tree
-//===========================================================
 template <class Comparable>
 void AugmentedBinarySearchTree<Comparable>::
 makeEmpty(BinaryNode<Comparable>* & t) const
@@ -452,9 +484,7 @@ makeEmpty(BinaryNode<Comparable>* & t) const
 	t = NULL;
 }
 
-//=============================================================================
-// returns true if the tree is complete
-//=============================================================================
+// 
 template <class Comparable>
 bool AugmentedBinarySearchTree<Comparable>::
 IsComplete(std::queue <BinaryNode<Comparable> *> q, int height)

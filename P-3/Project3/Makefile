@@ -22,7 +22,7 @@ Proj3Aux.o: Proj3Aux.cpp
 	$(CXX) $(CXXFLAGS) -c Proj3Aux.cpp
 
 run:
-	./Proj3
+	./Proj3 $(FILE) $(COMMANDS)
 
 clean:
 	rm -rf *.o

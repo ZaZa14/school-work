@@ -2,7 +2,7 @@
 ** File:    Exceptions.h
 ** Project: CMSC 341 Project 3, Fall 2015
 ** Author:  Zafar Mamarakhimov
-** Date:
+** Date:    10/28/2015
 ** Section: 5
 ** E-mail:  mzafar2@umbc.edu
 **
