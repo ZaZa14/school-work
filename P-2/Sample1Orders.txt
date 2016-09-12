@@ -1,3 +1,0 @@
-"Joe Smith" yes meat vegetable vegetable fruit sweet
-"Jane Doe" no meat fruit starch sweet fruit sweet
-"Jill Jones" yes vegetable starch sweet fruit starch
