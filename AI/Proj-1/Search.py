@@ -36,6 +36,20 @@ class Graph(object):
   # nodes are un-ordered
   def getNodes(self):
     return self.nodes
+
+def constructPath(path, start, goal):
+  
+  # create a queue
+  shortest_path = deque()
+  adjacent_node = path[goal]
+  while adjacent_node != start:
+    shortest_path.appendleft(adjacent_node)
+    adjacent_node = path[adjacent_node]
+    
+  shortest_path.appendleft(start)
+  shortest_path.append(goal)
+
+  return list(shortest_path)
     
 
 
@@ -78,6 +92,47 @@ def dikjstra(nodes, start):
 def bfsSearch(graph, start, goal):
   print("Inside of BFS: start-->" + start + " goal-->" + goal)
 
+  ''' - enqueue the start node
+      - while queue is not empty, enqueue the neighbors of the curr node
+        and check for the goal node'''
+  queue = deque()
+  visited = {start: 0}
+  path = {}
+
+  queue.append(start)
+  found = False
+
+  while queue:
+    curr = queue.popleft()
+    print("current node {}".format(curr))
+    if (curr == goal):
+      print("found the goal")
+      found = True
+      break
+    neighbors = list(graph.verteces[curr]) # get neighbors
+    print("neighbors of {} are: {}".format(curr, neighbors))
+    current_weight = visited[curr]
+
+    for temp in neighbors:
+      if temp not in visited:
+        try:
+          visited[temp] = int(current_weight) + int(graph.weight[(curr, temp)])
+        except:
+          continue
+        print("distance to {} is {}".format(temp, visited[temp]))
+        path[temp] = curr
+        queue.append(temp)
+
+  if(found):
+    print("distance to {} is {}".format(goal, visited[goal]))
+    print(constructPath(path, start, goal), visited[goal])
+  else:
+    print("there is no path between {} and {}".format(start, goal))
+
+
+
+
+
 
 # Depth first search
 def dfsSearch(graph, start, goal):
@@ -99,14 +154,7 @@ def ucsSearch(graph,start, goal):
     print("There is no path between node {} and node {}".format(start, goal))
     sys.exit()
 
-  while adjacent_node != start:
-    shortest_path.appendleft(adjacent_node)
-    adjacent_node = path[adjacent_node]
-
-  shortest_path.appendleft(start)
-  shortest_path.append(goal)
-
-  return list(shortest_path), visited_nodes[goal]
+  return list(constructPath(path, start, goal)), visited_nodes[goal]
 
 
 
