@@ -6,6 +6,7 @@
 # =================================================
 import os
 import sys
+import re
 
 from collections import defaultdict, deque
 
@@ -90,7 +91,13 @@ def ucsSearch(graph,start, goal):
 
   # create a queue
   shortest_path = deque()
-  adjacent_node = path[goal] # go backwards, start from the goal and go to the start
+  
+  try:
+    adjacent_node = path[goal] # go backwards, start from the goal and go to the start
+  except:
+    # if there is no path between nodes print the message and close the program
+    print("There is no path between node {} and node {}".format(start, goal))
+    sys.exit()
 
   while adjacent_node != start:
     shortest_path.appendleft(adjacent_node)
@@ -99,7 +106,7 @@ def ucsSearch(graph,start, goal):
   shortest_path.appendleft(start)
   shortest_path.append(goal)
 
-  return list(shortest_path)
+  return list(shortest_path), visited_nodes[goal]
 
 
 
@@ -121,10 +128,12 @@ if __name__ == '__main__':
     try:
       with open(inputFile, 'r') as fp:
         for line in fp:
-          line = line.replace(" ", "") # removing all white spaces from the string           
+          #line = line.replace(" ", "") # removing all white spaces from the string   
+          line = re.findall(r'\d+', line) # get numbers using regular expression       
           graph.addNode(line[0])
           graph.addNode(line[1])
           graph.makeEdge(line[0], line[1], line[2])
+          print(line)
     except IOError:
       print("Cannot find the input file")
 
@@ -140,13 +149,3 @@ if __name__ == '__main__':
 
   else:
     print("Enter correct number of arguments") # if input is not correct
-
-  # hashMap = {1 : [2, 3 ,4], 
-  #             2 : [5, 6],
-  #             3 : [7, 8],
-  #             4 : []}
-  # print(hashMap[1])
-  # print(hashMap[4])
-  # hashMap[4] = [1, 5, 9]
-  # print(hashMap[4])
-  # print(hashMap.keys())
