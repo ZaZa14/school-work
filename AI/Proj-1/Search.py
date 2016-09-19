@@ -80,7 +80,7 @@ def dikjstra(nodes, start):
 
     for edge in nodes.verteces[min_node]:
       try:
-        weight = int(current_weight) + int(nodes.weight[(min_node, edge)])
+        weight = float(current_weight) + float(nodes.weight[(min_node, edge)])
       except:
         continue
       if edge not in visited or weight < visited[edge]:
@@ -117,7 +117,7 @@ def bfsSearch(graph, start, goal):
     for temp in neighbors:
       if temp not in visited:
         try:
-          visited[temp] = int(current_weight) + int(graph.weight[(curr, temp)])
+          visited[temp] = float(current_weight) + float(graph.weight[(curr, temp)])
         except:
           continue
         # print("distance to {} is {}".format(temp, visited[temp]))
@@ -128,7 +128,7 @@ def bfsSearch(graph, start, goal):
     # print("distance to {} is {}".format(goal, visited[goal]))
     final_path = constructPath(path, start, goal)    
     final_path = map(int, final_path)
-    # print(list(final_path))
+    print(list(final_path))
     return list(final_path)
   else:
     # print("there is no path between {} and {}".format(start, goal))
@@ -157,7 +157,7 @@ def dfsSearch(graph, start, goal):
     for temp in neighbors:
       if temp not in visited:
         try:
-          visited[temp] = int(current_weight) + int(graph.weight[(curr, temp)])
+          visited[temp] = float(current_weight) + float(graph.weight[(curr, temp)])
         except:
           continue
 
@@ -167,7 +167,7 @@ def dfsSearch(graph, start, goal):
     # print("distance to {} is {}".format(goal, visited[goal]))
     final_path = constructPath(path, start, goal)
     final_path = map(int, final_path)
-    # print(list(final_path))
+    print(list(final_path))
     return list(final_path)
   else:
     # print("there is no path between {} and {}".format(start, goal))
@@ -191,7 +191,7 @@ def ucsSearch(graph,start, goal):
 
   final_path = constructPath(path, start, goal)
   final_path = map(int, final_path)
-  # print(list(final_path))
+  print(list(final_path))
   return list(final_path)
 
 
@@ -201,14 +201,14 @@ if __name__ == '__main__':
     start = sys.argv[2]
     goal = sys.argv[3]
     search = sys.argv[4]
-
     graph = Graph()   
 
     try:
       with open(inputFile, 'r') as fp:
         for line in fp:
           #line = line.replace(" ", "") # removing all white spaces from the string   
-          line = re.findall(r'\d+', line) # get numbers using regular expression       
+          line = re.findall(r'[-+]?\d*\.*\d+', line) # get numbers using regular expression
+          # print(line)       
           graph.addNode(line[0])
           graph.addNode(line[1])
           graph.makeEdge(line[0], line[1], line[2])
