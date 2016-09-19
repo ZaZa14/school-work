@@ -126,11 +126,13 @@ def bfsSearch(graph, start, goal):
 
   if(found):
     # print("distance to {} is {}".format(goal, visited[goal]))
-    final_path = constructPath(path, start, goal)
-    print(final_path)
-    return final_path
+    final_path = constructPath(path, start, goal)    
+    final_path = map(int, final_path)
+    # print(list(final_path))
+    return list(final_path)
   else:
-    print("there is no path between {} and {}".format(start, goal))
+    # print("there is no path between {} and {}".format(start, goal))
+    print(list())
 
 
 # Depth first search
@@ -164,10 +166,12 @@ def dfsSearch(graph, start, goal):
   if(found):
     # print("distance to {} is {}".format(goal, visited[goal]))
     final_path = constructPath(path, start, goal)
-    print(final_path)
-    return final_path
+    final_path = map(int, final_path)
+    # print(list(final_path))
+    return list(final_path)
   else:
-    print("there is no path between {} and {}".format(start, goal))
+    # print("there is no path between {} and {}".format(start, goal))
+    print([])
 
 
 
@@ -181,12 +185,14 @@ def ucsSearch(graph,start, goal):
     adjacent_node = path[goal] # go backwards, start from the goal and go to the start
   except:
     # if there is no path between nodes print the message and close the program
-    print("There is no path between node {} and node {}".format(start, goal))
+    # print("There is no path between node {} and node {}".format(start, goal))
+    print([])
     sys.exit()
 
   final_path = constructPath(path, start, goal)
-  print(final_path)
-  return final_path
+  final_path = map(int, final_path)
+  # print(list(final_path))
+  return list(final_path)
 
 
 if __name__ == '__main__':  
