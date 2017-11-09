@@ -54,8 +54,7 @@ def constructPath(path, start, goal):
     
   shortest_path.appendleft(start)
   shortest_path.append(goal)
-  return list(shortest_path)
-    
+  return list(shortest_path)    
 
 
 # calculates shortest path to every node in the graph
@@ -88,9 +87,6 @@ def dikjstra(nodes, start):
         path[edge] = min_node
   # return visited, path
   return path
-
-
-
 
 # Breadth first search
 def bfsSearch(graph, start, goal):
